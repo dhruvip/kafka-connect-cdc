@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "a2277034-c6f0-433b-aa14-3113cc20f3a1",
+		"name": "confluent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get connectors",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post connector",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"inventory-connector\",\n  \"config\": {\n    \"connector.class\": \"io.debezium.connector.mysql.MySqlConnector\",\n    \"database.hostname\": \"mysql\",\n    \"database.port\": \"3306\",\n    \"database.user\": \"admin\",\n    \"database.password\": \"admin\",\n    \"database.dbname\" : \"db\",\n    \"database.server.name\": \"dbserver1\",\n    \"table.include.list\": \"db.movies\",\n    \"database.server.id\": 1,\n    \"topic.prefix\": \"db-change\"\n\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/connectors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Connector status",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Connector",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "update connector",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"connector.class\": \"io.debezium.connector.mysql.MySqlConnector\",\n    \"database.hostname\": \"mysql\",\n    \"database.port\": \"3306\",\n    \"database.user\": \"admin\",\n    \"database.password\": \"admin\",\n    \"database.dbname\" : \"db\",\n    \"database.server.name\": \"dbserver1\",\n    \"table.include.list\": \"db.movies\",\n    \"database.server.id\": 1,\n    \"topic.prefix\": \"db-change\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8083/connectors/inventory-connector/config",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"connectors",
+						"inventory-connector",
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restart a connector",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "validate connector",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "connector plugins",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post connector Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"inventory-connector\",\n  \"config\": {\n    \"connector.class\": \"io.debezium.connector.mysql.MySqlConnector\",\n    \"database.hostname\": \"mysql\",\n    \"database.port\": \"3306\",\n    \"database.user\": \"admin\",\n    \"database.password\": \"admin\",\n    \"database.dbname\" : \"db\",\n    \"database.server.name\": \"dbserver1\",\n    \"table.include.list\": \"db.movies\",\n    \"database.server.id\": 1,\n    \"topic.prefix\": \"db-change\"\n\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/connectors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
